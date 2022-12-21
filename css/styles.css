@@ -10,9 +10,7 @@
 
 
 /* ---- Base Rules ---- */
-html {
-    scroll-behavior: smooth;
-}
+
 body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
@@ -222,4 +220,19 @@ section.your-active-class .landing__container::after {
 		           translate(-1em) 
 		           rotate(-360deg);
 	}
+}
+
+
+/* nav bar responsive code */
+
+@media (max-width : 600px){
+    #navbar__list{
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+    }
+    ul li{
+        width: 23%;
+        text-align: center;
+    }
 }

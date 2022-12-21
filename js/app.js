@@ -24,6 +24,7 @@
 */
 let list = document.getElementById('navbar__list');
 let sections = document.querySelectorAll('section');
+let fragment = document.createDocumentFragment();
 /**
  * End Global Variables
  * Start Helper Functions
@@ -39,15 +40,26 @@ let sections = document.querySelectorAll('section');
 
 // build the nav
 let creatNavBar = ()=>{
-    console.log(window.pageYOffset);
-    sections.forEach(function (section) {
-        let text = section.getAttribute('id');
-        list.innerHTML += `<li><a href="#${text}">${text}</a></li>`;
-        let linkList = document.querySelectorAll('a');
-        linkList.forEach(function (Link){
-            Link.setAttribute('class' , 'menu__link');
-        });
+    sections.forEach((section)=>{
+        let sectionId = section.getAttribute('id');
+        let sectionTitle = section.getAttribute('data-nav');
+
+        let itemList = document.createElement('li');
+        let linkList = document.createElement('a');
+
+        linkList.classList.add('menu__link');
+        linkList.href = `#${sectionId}`;
+        linkList.innerText = sectionTitle ;
+        linkList.addEventListener('click' , event=>{
+            event.preventDefault();
+            section.scrollIntoView({
+                behavior : 'smooth'
+            })
+        })
+        itemList.appendChild(linkList);
+        fragment.appendChild(itemList)
     })
+    list.appendChild(fragment);
 }
 
 creatNavBar();
@@ -77,21 +89,21 @@ window.onscroll = ()=>{
     let linkTwo = links[1];
     let linkThree = links[2];
     let linkFour = links[3];
-    if(window.pageYOffset > 975 && window.pageYOffset < 1475){
+    if(window.pageYOffset > 1175 && window.pageYOffset < 1825){
         secTwo.classList.add('your-active-class');
         secOne.classList.remove('your-active-class');
         linkTwo.classList.add('active-link');
         linkOne.classList.remove('active-link');
         linkThree.classList.remove('active-link');
         linkFour.classList.remove('active-link');
-    }else if(window.pageYOffset > 1475 && window.pageYOffset < 1975){
+    }else if(window.pageYOffset > 1825 && window.pageYOffset < 2525){
         secThree.classList.add('your-active-class');
         secTwo.classList.remove('your-active-class');
         linkThree.classList.add('active-link');
         linkTwo.classList.remove('active-link');
         linkOne.classList.remove('active-link');
         linkFour.classList.remove('active-link');
-    }else if(window.pageYOffset > 1975){
+    }else if(window.pageYOffset > 2525){
         secFour.classList.add('your-active-class');
         secThree.classList.remove('your-active-class');
         linkFour.classList.add('active-link');

@@ -1,13 +1,12 @@
 # Landing Page Project
+-one page has 4 sections and able to be more and each section has an own link .
+## Frist Version 
+-convert site from static to dynamic with javascript .
 
-## Table of Contents
+### Project conatain
+-HTML index page .
+-JS file contain app.js file .
+-css file contain style.css file .
 
-* [Instructions](#instructions)
-
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+### Requirements
+-only thing you need a browser .
